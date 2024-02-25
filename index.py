@@ -10,10 +10,8 @@ def get_syllable_count(phones):
     return count
 
 def map_stressed_syllables(phones):
-    # print(phones)
     stresses = ''
     for phone in phones:
-        # print(phone)
         if '0' in phone:
             stresses += '0'
         if '1' in phone:
@@ -31,10 +29,8 @@ with open('./all_star.txt', 'r') as file:
         for word in words:
             syllable_map = cmudict.dict()[word]
             if (len(syllable_map) > 0):
-                # print(syllable_map)
                 line_meter += map_stressed_syllables(syllable_map[0])
             else:
-                # print("Unknown word: ", word)
                 line_meter += '?' + word + '?'
         line_meters.append(line_meter)
 
